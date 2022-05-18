@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { moviesService } from "../services/movies.service";
 
-const LOADING = "LOADING";
-const SUCCESS = "SUCCESS";
-const FAILED = "FAILED";
+const PENDING = "LOADING";
+const FULLFILLED = "SUCCESS";
+const REJECTED = "FAILED";
 
 const initialState = {
   movies: [],
   genres: [],
-  status: SUCCESS,
+  status: PENDING,
   error: null,
 };
 
@@ -23,6 +23,29 @@ const movies = createSlice({
         movies: payload.movies,
       };
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getMovies.pending, (state) => {
+      state = {
+        ...state,
+        status: PENDING,
+      };
+    });
+    builder.addCase(getMovies.fulfilled, (state) => {
+      state = {
+        ...state,
+        status: FULLFILLED,
+        movies: payload.moviesByGenre,
+        genres: payload.genres,
+      };
+    });
+    builder.addCase(getMovies.rejected, (state) => {
+      state = {
+        ...state,
+        status: REJECTED,
+        error: payload?.msg || state.error,
+      };
+    });
   },
 });
 
