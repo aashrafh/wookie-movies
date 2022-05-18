@@ -18,7 +18,7 @@ api.interceptors.response.use(undefined, (err) => {
   if (!err.response || err.response?.status !== 200) {
     throw Error("Failed to communicate with the API. Please, try again.");
   }
-  throw error.response;
+  throw err.response;
 });
 
 export { api };

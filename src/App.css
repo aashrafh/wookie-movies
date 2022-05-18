@@ -1,0 +1,93 @@
+.container {
+  width: 90%;
+  max-width:100%;
+  min-width: 70%;
+  min-height: 100%;
+  margin: auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie_card {
+  background-color: #11100b;
+  width: 100%;
+  min-width: 70%;
+  height: 600px;
+  position: relative;
+  border-radius: 5%;
+  overflow: hidden;
+}
+.movie_img {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+.movie {
+  width: 50%;
+  height: 70%;
+  position: absolute;
+  top: 95px;
+  right: 65px;
+}
+.movie_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  width: 50%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.stars {
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie_title {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.movie_rating {
+  font-size: 20px;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  color: #fdc559;
+}
+.movie_rating span {
+  background-color: #fdc559;
+  margin-left: 3px;
+  padding: 1px 5px;
+  font-size: 20px;
+  color: #19130d;
+  border-radius: 5px;
+}
+.checked {
+  color: #fdc559;
+}
+.movie_info {
+  width: 80%;
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.movie_cast {
+  width: 80%;
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: start;
+  font-size: 20px;
+}
+
+.movie_description{ 
+  margin-top: 0.75rem;
+  font-size: 20px;
+}

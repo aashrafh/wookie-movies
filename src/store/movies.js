@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { moviesService } from "../services/movies.service";
 
-const PENDING = "LOADING";
-const FULLFILLED = "SUCCESS";
-const REJECTED = "FAILED";
+export const STATUS = {
+  PENDING: "PENDING",
+  FULLFILLED: "FULLFILLED",
+  REJECTED: "REJECTED",
+};
 
 const initialState = {
   movies: [],
   genres: [],
-  status: PENDING,
+  status: STATUS.PENDING,
   error: null,
 };
 
@@ -20,31 +22,24 @@ const movies = createSlice({
       const { payload } = action;
       return {
         ...state,
-        movies: payload.movies,
+        movies: payload,
       };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(getMovies.pending, (state) => {
-      state = {
-        ...state,
-        status: PENDING,
-      };
+      state.status = STATUS.PENDING;
     });
-    builder.addCase(getMovies.fulfilled, (state) => {
-      state = {
-        ...state,
-        status: FULLFILLED,
-        movies: payload.moviesByGenre,
-        genres: payload.genres,
-      };
+    builder.addCase(getMovies.fulfilled, (state, action) => {
+      const { payload } = action;
+      state.status = STATUS.FULLFILLED;
+      state.movies = payload.moviesByGenre;
+      state.genres = payload.genres;
     });
-    builder.addCase(getMovies.rejected, (state) => {
-      state = {
-        ...state,
-        status: REJECTED,
-        error: payload?.msg || state.error,
-      };
+    builder.addCase(getMovies.rejected, (state, action) => {
+      const { payload } = action;
+      state.status = STATUS.REJECTED;
+      state.error = payload?.msg || state.error;
     });
   },
 });
