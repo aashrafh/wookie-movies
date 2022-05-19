@@ -1,93 +1,83 @@
-.container {
-  width: 90%;
-  max-width:100%;
-  min-width: 70%;
-  min-height: 100%;
-  margin: auto;
-  padding: 0 2rem;
+.app {
+  height: 100%;
+  padding: 2rem 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.875rem;
 }
-.movie_card {
-  background-color: #11100b;
-  width: 100%;
-  min-width: 70%;
-  height: 600px;
-  position: relative;
-  border-radius: 5%;
-  overflow: hidden;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.875rem;
 }
-.movie_img {
-  width: 40%;
-  height: 100%;
-  position: relative;
-  z-index: 2;
+.movie_contianer {
+  min-width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.movie {
+
+.poster {
+  max-width: 80%;
+  gap: 1.875rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.poster > img {
   width: 50%;
-  height: 70%;
-  position: absolute;
-  top: 95px;
-  right: 65px;
+  height: auto;
 }
+
+.movie_details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  padding: 1rem;
+}
+
+.movie_title{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.movie_title > strong {
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.movie_details > p {
+  width: 100%;
+  font-size: 1.1rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.movie_info > span {
+  font-size: 1.1rem;
+}
+
 .movie_header {
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.title {
-  width: 50%;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.stars {
-  width: 40%;
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.movie_title {
-  font-size: 25px;
-  text-transform: uppercase;
-}
-.movie_rating {
-  font-size: 20px;
-  margin-left: 0.5rem;
-  font-weight: 700;
-  color: #fdc559;
-}
-.movie_rating span {
-  background-color: #fdc559;
-  margin-left: 3px;
-  padding: 1px 5px;
-  font-size: 20px;
-  color: #19130d;
-  border-radius: 5px;
-}
 .checked {
-  color: #fdc559;
+  color:  #ffc832;
 }
-.movie_info {
-  width: 80%;
-  margin-top: 0.75rem;
+
+.movie_info { 
+  width: 60%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  font-size: 20px;
-}
-
-.movie_cast {
-  width: 80%;
-  margin-top: 0.75rem;
-  display: flex;
-  justify-content: start;
-  font-size: 20px;
-}
-
-.movie_description{ 
-  margin-top: 0.75rem;
-  font-size: 20px;
 }

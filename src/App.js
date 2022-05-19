@@ -17,7 +17,9 @@ function App() {
   }, [movies]);
   return (
     <>
-      <Details />
+      <div className="app">
+        <Details />
+      </div>
     </>
   );
 }

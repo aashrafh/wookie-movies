@@ -1,46 +1,55 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styles from "./Details.module.css";
 
 const Details = () => {
   const state = useSelector((state) => state.movies);
   const movie = state?.movies[0]?.movies[0];
   console.log(movie);
   return (
-    <div class="container" style={{ margin: "5rem" }}>
-      <div class="movie_card">
-        <div class="movie_img">
-          <img src={movie?.backdrop} alt="Movie Backdrop" />
-        </div>
-        <div class="movie">
-          <div className="movie_header">
-            <div className="title">
-              <h3 class="movie_title">{`${movie?.title}`}</h3>
-              <h4 class="movie_rating">
-                {movie?.imdb_rating}
-                <i>/</i>10 <span>IMDb</span>
-              </h4>
+    <div className="container">
+      <div className="movie_contianer">
+        <div className="poster">
+          <img src={movie?.backdrop} alt={movie?.title} />
+          <div className="movie_details">
+            <div className="movie_header">
+              <div className="movie_title">
+                <h2>{movie?.title}</h2>
+                <strong>({movie?.imdb_rating}/10)</strong>
+              </div>
+              <div className="movie_rating">
+                <span
+                  className={`fa fa-star fa-3x ${
+                    movie?.imdb_rating >= 2 && "checked"
+                  }`}
+                ></span>
+                <span
+                  className={`fa fa-star fa-3x ${
+                    movie?.imdb_rating >= 4 && "checked"
+                  }`}
+                ></span>
+                <span
+                  className={`fa fa-star fa-3x ${
+                    movie?.imdb_rating >= 6 && "checked"
+                  }`}
+                ></span>
+                <span
+                  className={`fa fa-star fa-3x ${
+                    movie?.imdb_rating >= 8 && "checked"
+                  }`}
+                ></span>
+                <span
+                  className={`fa fa-star fa-3x ${
+                    movie?.imdb_rating >= 10 && "checked"
+                  }`}
+                ></span>
+              </div>
             </div>
-            <div className="stars">
-              <span class="fa fa-star fa-3x checked"></span>
-              <span class="fa fa-star fa-3x checked"></span>
-              <span class="fa fa-star fa-3x checked"></span>
-              <span class="fa fa-star fa-3x"></span>
-              <span class="fa fa-star fa-3x"></span>
+            <div className="movie_info">
+              <span>{new Date(movie?.released_on).getFullYear()}</span>
+              <span>{movie?.length}</span>
+              <span>{movie?.director}</span>
             </div>
-          </div>
-
-          <div class="movie_info">
-            <span>{new Date(movie?.released_on).getFullYear()}</span>
-            <span>{movie?.length}</span>
-            <span>{movie?.director}</span>
-          </div>
-
-          <div class="movie_cast">
-            <span>Cast: {movie?.cast.join(", ")}</span>
-          </div>
-
-          <div class="movie_description">
+            <p>Cast: {movie?.cast.join(", ")}</p>
             <p>Movie Description: {movie?.overview}</p>
           </div>
         </div>
