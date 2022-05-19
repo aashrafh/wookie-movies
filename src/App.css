@@ -47,23 +47,25 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   gap: 1rem;
 }
 
-.movie_title > strong {
-  font-size: 1.5rem;
+.movie_title > p {
+  /* font-size: 1.1rem; */
+  padding-top: 0.5rem;
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
 
 .movie_details > p {
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
 .movie_info > span {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .movie_header {
@@ -73,15 +75,15 @@
   align-items: center;
 }
 
-.checked {
-  color: #ffc832;
-}
-
 .movie_info {
-  width: 60%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.checked {
+  color: #ffc832;
 }
 
 .genre_section {

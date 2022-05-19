@@ -7,32 +7,32 @@ const Poster = ({ movie }) => {
       <div className="movie_details">
         <div className="movie_header">
           <div className="movie_title">
-            <h2>{movie?.title}</h2>
-            <strong>({movie?.imdb_rating}/10)</strong>
+            <h3>{movie?.title}</h3>
+            <p>({movie?.imdb_rating}/10)</p>
           </div>
           <div className="movie_rating">
             <span
-              className={`fa fa-star fa-3x ${
+              className={`fa fa-star fa-2x ${
                 movie?.imdb_rating >= 2 && "checked"
               }`}
             ></span>
             <span
-              className={`fa fa-star fa-3x ${
+              className={`fa fa-star fa-2x ${
                 movie?.imdb_rating >= 4 && "checked"
               }`}
             ></span>
             <span
-              className={`fa fa-star fa-3x ${
+              className={`fa fa-star fa-2x ${
                 movie?.imdb_rating >= 6 && "checked"
               }`}
             ></span>
             <span
-              className={`fa fa-star fa-3x ${
+              className={`fa fa-star fa-2x ${
                 movie?.imdb_rating >= 8 && "checked"
               }`}
             ></span>
             <span
-              className={`fa fa-star fa-3x ${
+              className={`fa fa-star fa-2x ${
                 movie?.imdb_rating >= 10 && "checked"
               }`}
             ></span>
