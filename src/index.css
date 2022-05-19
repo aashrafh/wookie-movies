@@ -31,3 +31,12 @@ body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
     Noto Sans, sans-serif;
 }
+
+*::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+* {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
