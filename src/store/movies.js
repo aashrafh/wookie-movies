@@ -44,6 +44,13 @@ const movies = createSlice({
   },
 });
 
+export const getMoviesByGenre = (genres, resMovies) => {
+  return genres.map((genre) => {
+    const movies = resMovies.filter((movie) => movie.genres.includes(genre));
+    return { genre, movies };
+  });
+};
+
 export const getMovies = createAsyncThunk("movies/getMovies", async () => {
   const res = await moviesService.getMovies();
   if (res.status !== 200) {
@@ -53,12 +60,7 @@ export const getMovies = createAsyncThunk("movies/getMovies", async () => {
   }
 
   const genres = [...new Set(res.data.movies.flatMap((movie) => movie.genres))];
-  const moviesByGenre = genres.map((genre) => {
-    const movies = res.data.movies.filter((movie) =>
-      movie.genres.includes(genre)
-    );
-    return { genre, movies };
-  });
+  const moviesByGenre = getMoviesByGenre(genres, res.data.movies);
 
   return { genres, moviesByGenre };
 });
