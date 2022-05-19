@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { getMovies } from "./store/movies";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import Details from "./pages/Details/Details";
+import Details from "./pages/Details";
+import Home from "./pages/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,8 @@ function App() {
   return (
     <>
       <div className="app">
-        <Details />
+        {/* <Details /> */}
+        <Home />
       </div>
     </>
   );

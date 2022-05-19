@@ -1,13 +1,33 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased;
-  background: linear-gradient(67.08deg, #1E46A3 0%, #000000 48.94%, #C12A23 99.97%);
-} 
+  background: linear-gradient(
+    67.08deg,
+    #1e46a3 0%,
+    #000000 48.94%,
+    #c12a23 99.97%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-gap: 2rem;
+  gap: 2rem;
+  grid-gap: var(--md-space);
+  gap: var(--md-space);
+  padding-top: calc(2rem * 2);
+  padding-top: calc(var(--md-space) * 2);
+  padding-bottom: 2rem;
+  padding-bottom: var(--md-space);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, sans-serif;
+}
