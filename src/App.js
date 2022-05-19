@@ -1,28 +1,19 @@
-import React, { useEffect } from "react";
-import { getMovies } from "./store/movies";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Routes from "./Routes";
 import "./App.css";
-import Details from "./pages/Details";
-import Home from "./pages/Home";
+import Layout from "./components/Layout";
+
+const history = createBrowserHistory();
 
 function App() {
-  const dispatch = useDispatch();
-  const movies = useSelector((state) => state.movies);
-
-  useEffect(() => {
-    dispatch(getMovies());
-  }, [dispatch]);
-
-  useEffect(() => {
-    console.log(movies);
-  }, [movies]);
   return (
-    <>
-      <div className="app">
-        {/* <Details /> */}
-        <Home />
-      </div>
-    </>
+    <Router history={history}>
+      <Layout>
+        <Routes />
+      </Layout>
+    </Router>
   );
 }
 
